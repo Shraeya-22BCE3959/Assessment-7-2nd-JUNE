@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Array Methods with document.write</title>
+</head>
+<body>
+  <h1>JavaScript Array Methods Demo</h1>
+
+  <script>
+    function write(title, value) {
+      document.write("<strong>" + title + ":</strong> " + value + "<br><br>");
+    }
+
+    let arr = [1, 2, 3, 4, 5];
+    write("Original Array", arr);
+
+    arr.push(6);
+    write("push(6)", arr);
+
+    arr.pop();
+    write("pop()", arr);
+
+    arr.unshift(0);
+    write("unshift(0)", arr);
+
+    arr.shift();
+    write("shift()", arr);
+
+    let arr2 = [6, 7];
+    let combined = arr.concat(arr2);
+    write("concat([6,7])", combined);
+
+    write("join('-')", arr.join('-'));
+
+    write("slice(1, 4)", arr.slice(1, 4));
+
+    arr.splice(2, 1, 99); // replace index 2 with 99
+    write("splice(2, 1, 99)", arr);
+
+    write("indexOf(3)", arr.indexOf(3));
+
+    let repeated = [1, 2, 3, 2, 1];
+    write("lastIndexOf(2)", repeated.lastIndexOf(2));
+
+    write("includes(4)", arr.includes(4));
+
+    write("find(x > 3)", arr.find(x => x > 3));
+
+    write("findIndex(x === 3)", arr.findIndex(x => x === 3));
+
+    write("filter(x % 2 === 0)", arr.filter(x => x % 2 === 0));
+
+    write("map(x * 2)", arr.map(x => x * 2));
+
+    write("reduce(sum)", arr.reduce((sum, x) => sum + x, 0));
+
+    document.write("<strong>forEach:</strong><br>");
+    arr.forEach((x, i) => document.write(`Index ${i}: ${x}<br>`));
+    document.write("<br>");
+
+    let unsorted = [3, 1, 4, 2];
+    unsorted.sort();
+    write("sort()", unsorted);
+
+    unsorted.reverse();
+    write("reverse()", unsorted);
+
+    let nested = [1, [2, 3], [4, [5]]];
+    write("flat(2)", nested.flat(2));
+
+    let words = ["hi", "bye"];
+    write("flatMap", words.flatMap(word => word.split('')));
+
+    write("every(x < 10)", arr.every(x => x < 10));
+
+    write("some(x > 4)", arr.some(x => x > 4));
+
+    let fillArr = [1, 2, 3, 4];
+    fillArr.fill(0, 1, 3);
+    write("fill(0, 1, 3)", fillArr);
+
+    let copyArr = [1, 2, 3, 4, 5];
+    copyArr.copyWithin(0, 3);
+    write("copyWithin(0, 3)", copyArr);
+
+    write("toString()", arr.toString());
+
+    write("toLocaleString()", arr.toLocaleString());
+
+    write("Array.isArray(arr)", Array.isArray(arr));
+  </script>
+</body>
+</html>

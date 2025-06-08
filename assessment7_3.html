@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Repeat Text</title>
+  <script>
+    let message = "";
+    const text = prompt("Enter the text you want to repeat:");
+    const times = parseInt(prompt("Enter how many times to repeat it:"));
+
+    if (!text || isNaN(times) || times < 1) {
+      message = "Please enter valid text and a positive number.";
+    } else {
+      message = "";
+      for (let i = 1; i <= times; i++) {
+        message += i + ". " + text + "<br>";
+      }
+    }
+
+    localStorage.setItem("repeatMessage", message);
+  </script>
+</head>
+<body>
+  <h1>Repeated Text Output</h1>
+  <p id="result"></p>
+
+  <script>
+    const result = localStorage.getItem("repeatMessage");
+    document.getElementById("result").innerHTML = result;
+    localStorage.removeItem("repeatMessage");
+  </script>
+</body>
+</html>

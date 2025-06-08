@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grade Checker</title>
+  <script>
+    let message = "";
+    const input = prompt("Enter your marks (0-100):");
+    const marks = parseFloat(input);
+
+    if (isNaN(marks) || marks < 0 || marks > 100) {
+      message = "Please enter valid marks between 0 and 100.";
+    } else if (marks >= 90) {
+      message = "Grade: A";
+    } else if (marks >= 80) {
+      message = "Grade: B";
+    } else if (marks >= 70) {
+      message = "Grade: C";
+    } else if (marks >= 60) {
+      message = "Grade: D";
+    } else if (marks >= 50) {
+      message = "Grade: E";
+    } else {
+      message = "Grade: F";
+    }
+
+    localStorage.setItem("gradeMessage", message);
+  </script>
+</head>
+<body>
+  <h1>Marks to Grade Result</h1>
+  <p id="result"></p>
+
+  <script>
+    const result = localStorage.getItem("gradeMessage");
+    document.getElementById("result").innerText = result;
+    localStorage.removeItem("gradeMessage");
+  </script>
+</body>
+</html>
